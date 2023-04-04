@@ -44,25 +44,25 @@ export default function TodoList() {
     <h2>Todo List</h2>
     <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
     {editing ? (
-    <div>
-    <button onClick={handleEditTodo}>Save</button>
-    <button onClick={handleCancelEdit}>Cancel</button>
-    </div>
+        <div>
+        <button onClick={handleEditTodo}>Save</button>
+        <button onClick={handleCancelEdit}>Cancel</button>
+        </div>
     ) : (
-    <button onClick={handleAddTodo}>Add</button>
+        <button onClick={handleAddTodo}>Add</button>
     )}
     <ul>
-    {todos.map(todo => (
-    <li key={todo.id}>
-    {todo.text}
-    <button onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
-    <button onClick={() => {
-    setText(todo.text);
-    setEditing(true);
-    setEditId(todo.id);
-    }}>Edit</button>
-    </li>
-    ))}
+        {todos.map(todo => (
+            <li key={todo.id}>
+            {todo.text}
+            <button onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
+            <button onClick={() => {
+                setText(todo.text);
+                setEditing(true);
+                setEditId(todo.id);
+            }}>Edit</button>
+            </li>
+        ))}
     </ul>
     </div>
     );
